@@ -1,12 +1,12 @@
-(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))a(e);new MutationObserver(e=>{for(const n of e)if(n.type==="childList")for(const r of n.addedNodes)r.tagName==="LINK"&&r.rel==="modulepreload"&&a(r)}).observe(document,{childList:!0,subtree:!0});function s(e){const n={};return e.integrity&&(n.integrity=e.integrity),e.referrerPolicy&&(n.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?n.credentials="include":e.crossOrigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function a(e){if(e.ep)return;e.ep=!0;const n=s(e);fetch(e.href,n)}})();const d={loggedIn:!!localStorage.getItem("user"),preferences:JSON.parse(localStorage.getItem("user"))||{},get(){return this.preferences},set({username:o,email:t="",bio:s=""}){this.preferences.username=o,this.preferences.email=t,this.preferences.bio=s,this.save()},save(){localStorage.removeItem("user"),localStorage.setItem("user",JSON.stringify(this.preferences))},clear(){localStorage.removeItem("user")}},i={loggedIn:d.loggedIn,username:"",login(o){d.set({username:o}),this.loggedIn=!0},logout(){this.loggedIn=!1,d.clear()},getUser(){return d.get()},setUser(o={username:this.username,email:"",bio:""}){d.set(o)}},m="/front_5th_chapter1-1",l={main:`${m}/`,login:`${m}/login`,profile:`${m}/profile`},f=()=>{const o=()=>location.hash?location.hash==="#/":location.pathname===l.main,t=()=>location.hash?location.hash==="#/profile":location.pathname===l.profile;return`
+(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))a(e);new MutationObserver(e=>{for(const n of e)if(n.type==="childList")for(const l of n.addedNodes)l.tagName==="LINK"&&l.rel==="modulepreload"&&a(l)}).observe(document,{childList:!0,subtree:!0});function s(e){const n={};return e.integrity&&(n.integrity=e.integrity),e.referrerPolicy&&(n.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?n.credentials="include":e.crossOrigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function a(e){if(e.ep)return;e.ep=!0;const n=s(e);fetch(e.href,n)}})();const d={loggedIn:!!localStorage.getItem("user"),preferences:JSON.parse(localStorage.getItem("user"))||{},get(){return this.preferences},set({username:o,email:t="",bio:s=""}){this.preferences.username=o,this.preferences.email=t,this.preferences.bio=s,this.save()},save(){localStorage.removeItem("user"),localStorage.setItem("user",JSON.stringify(this.preferences))},clear(){localStorage.removeItem("user")}},i={loggedIn:d.loggedIn,username:"",login(o){d.set({username:o}),this.loggedIn=!0},logout(){this.loggedIn=!1,d.clear()},getUser(){return d.get()},setUser(o={username:this.username,email:"",bio:""}){d.set(o)}},m="/front_5th_chapter1-1",r={main:`${m}/`,login:`${m}/login`,profile:`${m}/profile`},f=()=>{const o=()=>location.hash?location.hash==="#/":location.pathname===r.main,t=()=>location.hash?location.hash==="#/profile":location.pathname===r.profile;return`
         <header class="bg-blue-600 text-white p-4 sticky top-0">
         <h1 class="text-2xl font-bold">항해플러스</h1>
       </header>
 
       <nav class="bg-white shadow-md p-2 sticky top-14">
         <ul class="flex justify-around">
-          <li><a href="${l.main}" class="${o()?"text-blue-600 font-bold":"text-gray-600"}">홈</a></li>
-          <li><a href="${l.profile}" class="${t()?"text-blue-600 font-bold":"text-gray-600"}">프로필</a></li>
+          <li><a href="${r.main}" class="${o()?"text-blue-600 font-bold":"text-gray-600"}">홈</a></li>
+          <li><a href="${r.profile}" class="${t()?"text-blue-600 font-bold":"text-gray-600"}">프로필</a></li>
           ${i.loggedIn?'<li><a href="#" id="logout" class="text-gray-600">로그아웃</a></li>':'<li><a href="/login" class="text-gray-600">로그인</a></li>'}
         </ul>
       </nav>
@@ -111,7 +111,7 @@
       ${p()}
       </div>
     </div>
-  `,t=c(o);t.querySelector("nav").addEventListener("click",s=>{if(s.preventDefault(),s.target.nodeName==="A"){if(s.target.id==="logout"){i.logout(),window.router.navigate(l.login);return}const a=s.target.href.replace(location.origin,"");window.router.navigate(a)}}),u(t)},b=()=>{const t=c(`
+  `,t=c(o);t.querySelector("nav").addEventListener("click",s=>{if(s.preventDefault(),s.target.nodeName==="A"){if(s.target.id==="logout"){i.logout(),window.router.navigate(r.login);return}const a=s.target.href.replace(location.origin,"");window.router.navigate(a)}}),u(t)},b=()=>{const t=c(`
     <main class="bg-gray-100 flex items-center justify-center min-h-screen">
       <div class="bg-white p-8 rounded-lg shadow-md w-full text-center" style="max-width: 480px">
         <h1 class="text-2xl font-bold text-blue-600 mb-4">항해플러스</h1>
@@ -125,7 +125,7 @@
         </a>
       </div>
     </main>
-  `);t.addEventListener("click",s=>{s.preventDefault(),s.target.nodeName==="A"&&window.router.navigate("/")}),u(t)},h=()=>{const t=c(`
+  `);t.addEventListener("click",s=>{s.preventDefault(),s.target.nodeName==="A"&&window.router.navigate(r.main)}),u(t)},h=()=>{const t=c(`
     <main class="bg-gray-100 flex items-center justify-center min-h-screen">
       <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h1 class="text-2xl font-bold text-center text-blue-600 mb-8">항해플러스</h1>
@@ -147,7 +147,7 @@
         </div>
       </div>
     </main>
-  `);t.querySelector("#login-form").addEventListener("submit",s=>{s.preventDefault();const a=t.querySelector("#username").value;if(!a){alert("사용자 이름을 입력해주세요.");return}i.login(a),window.router.navigate(l.main)}),u(t)},v=()=>{const{username:o="",email:t="",bio:s=""}=i.getUser(),a=`
+  `);t.querySelector("#login-form").addEventListener("submit",s=>{s.preventDefault();const a=t.querySelector("#username").value;if(!a){alert("사용자 이름을 입력해주세요.");return}i.login(a),window.router.navigate(r.main)}),u(t)},v=()=>{const{username:o="",email:t="",bio:s=""}=i.getUser(),a=`
     <div class="bg-gray-100 min-h-screen flex justify-center">
       <div class="max-w-md w-full">
         ${f()}
@@ -212,4 +212,4 @@
         ${p()}
       </div>
     </div>
-  `,e=c(a);e.querySelector("nav").addEventListener("click",n=>{if(n.preventDefault(),n.target.nodeName==="A"){if(n.target.id==="logout"){i.logout(),window.router.navigate(l.login);return}const r=n.target.href.replace(location.origin,"");window.router.navigate(r)}}),e.querySelector("#profile-form").addEventListener("submit",n=>{n.preventDefault();const r={username:document.getElementById("username").value,email:document.getElementById("email").value,bio:document.getElementById("bio").value};i.setUser(r),alert("프로필이 업데이트 되었습니다.")}),u(e)},x=o=>{let t=o.find(e=>e.fragment==="*").component;const s={},a=()=>{const e=o.find(n=>n.fragment===window.location.pathname);if(!e){t();return}e.component()};return s.navigate=e=>{history.pushState({},"",e),a()},s.start=()=>{window.addEventListener("popstate",a)},s},w=o=>{let t=o.find(e=>e.fragment==="*").component;const s={},a=()=>{const e=o.find(n=>n.fragment===window.location.hash);if(!e){t();return}e.component()};return s.navigate=e=>{window.location.hash=e,a()},s.start=()=>{window.addEventListener("hashchange",a),window.location.hash||(window.location.hash="#/")},s},y=({path:o,replace:t=!1})=>{t?history.replaceState({},"",o):history.pushState({},"",o)},E=o=>{location.hash=o};export{b as E,h as L,g as M,v as P,i as a,l as b,w as c,E as d,x as h,y as n};
+  `,e=c(a);e.querySelector("nav").addEventListener("click",n=>{if(n.preventDefault(),n.target.nodeName==="A"){if(n.target.id==="logout"){i.logout(),window.router.navigate(r.login);return}const l=n.target.href.replace(location.origin,"");window.router.navigate(l)}}),e.querySelector("#profile-form").addEventListener("submit",n=>{n.preventDefault();const l={username:document.getElementById("username").value,email:document.getElementById("email").value,bio:document.getElementById("bio").value};i.setUser(l),alert("프로필이 업데이트 되었습니다.")}),u(e)},x=o=>{let t=o.find(e=>e.fragment==="*").component;const s={},a=()=>{const e=o.find(n=>n.fragment===window.location.pathname);if(!e){t();return}e.component()};return s.navigate=e=>{history.pushState({},"",e),a()},s.start=()=>{window.addEventListener("popstate",a)},s},w=o=>{let t=o.find(e=>e.fragment==="*").component;const s={},a=()=>{const e=o.find(n=>n.fragment===window.location.hash);if(!e){t();return}e.component()};return s.navigate=e=>{window.location.hash=e,a()},s.start=()=>{window.addEventListener("hashchange",a),window.location.hash||(window.location.hash="#/")},s},y=({path:o,replace:t=!1})=>{t?history.replaceState({},"",o):history.pushState({},"",o)},E=o=>{location.hash=o};export{b as E,h as L,g as M,v as P,i as a,r as b,w as c,E as d,x as h,y as n};
