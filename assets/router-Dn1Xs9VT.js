@@ -147,7 +147,7 @@
         </div>
       </div>
     </main>
-  `);t.querySelector("#login-form").addEventListener("submit",s=>{s.preventDefault();const a=t.querySelector("#username").value;if(!a){alert("사용자 이름을 입력해주세요.");return}i.login(a),window.router.navigate("/")}),u(t)},v=()=>{const{username:o="",email:t="",bio:s=""}=i.getUser(),a=`
+  `);t.querySelector("#login-form").addEventListener("submit",s=>{s.preventDefault();const a=t.querySelector("#username").value;if(!a){alert("사용자 이름을 입력해주세요.");return}i.login(a),window.router.navigate(l.main)}),u(t)},v=()=>{const{username:o="",email:t="",bio:s=""}=i.getUser(),a=`
     <div class="bg-gray-100 min-h-screen flex justify-center">
       <div class="max-w-md w-full">
         ${f()}
