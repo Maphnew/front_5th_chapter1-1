@@ -1,1 +1,0 @@
-import{b as i,M as e,E as s,L as o,P as u,a as r,c as a}from"./router-ClmqJODM.js";const t={main:n=>()=>r.loggedIn?(a("#/"),e()):n(),auth:n=>()=>r.loggedIn?n():(a("#/login"),o())},m=[{fragment:"#/",component:e},{fragment:"#/login",component:t.main(o)},{fragment:"#/profile",component:t.auth(u)},{fragment:"*",component:s}],g=window.router=i(m);g.start();g.navigate("/");
